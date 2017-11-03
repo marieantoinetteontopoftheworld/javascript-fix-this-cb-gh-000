@@ -23,13 +23,13 @@ var pie = {
   customer: "Tammy"
 }
 
-function makeCake() {
-  var updateCakeStatus = updateStatus.bind(document.getElementById('cake'));
+function makeCake(div) {
+  var updateCakeStatus = updateStatus.bind(div);
   mix(updateCakeStatus)
 }
 
 function makePie() {
-  var updatePieStatus = updateStatus.bind(document.getElementById('pie'));
+  var updatePieStatus = updateStatus.bind(div);
   pie.decorate = cake.decorate.bind(pie);
   mix(updatePieStatus)
 }
@@ -70,9 +70,9 @@ function makeDessert() {
   //add code here to decide which make... function to call
   //based on which link was clicked
   if (this.parentNode.id === 'cake') {
-    makeCake();
+    makeCake(this.parentNode);
   } else {
-    makePie();
+    makePie(this.parentNode);
   }
 }
 
