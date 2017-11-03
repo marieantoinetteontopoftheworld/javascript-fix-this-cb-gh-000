@@ -8,8 +8,8 @@ var cake = {
   decorate: function(updateFunction) {
     var status = "Decorating with " + this.topping + ". Ready to eat soon!"
     updateFunction(status)
-    setTimeout(function() {
-      updateFunction(serve.apply(this, "Happy Eating!", this.customer))
+    setTimeout(() => {
+      updateFunction(serve.apply(this, ["Happy Eating!", this.customer]))
     }, 2000)
   }
 }
@@ -35,6 +35,12 @@ function makePie() {
 
 function updateStatus(statusText) {
   this.getElementsByClassName("status")[0].innerText = statusText
+}
+
+//
+
+function updateLog(statusText) {
+  console.log(statusText)
 }
 
 function bake(updateFunction) {
