@@ -61,8 +61,8 @@ function mix(updateFunction) {
 }
 
 function cool(updateFunction) {
-  var status = this
-  setTimeout(function() {
+  var status = "It has to cool! Hands off!"
+  setTimeout(() => {
     this.decorate(updateFunction);
   }, 2000)
   updateFunction(status)
