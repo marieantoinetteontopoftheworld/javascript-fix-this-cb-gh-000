@@ -49,6 +49,7 @@ function bake(updateFunction) {
   setTimeout(function() {
     cool.call(updateFunction === 'updateCakeStatus' ? cake : pie, updateFunction);
   }, 2000)
+  updateFunction(status)
 }
 
 function mix(updateFunction) {
