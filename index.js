@@ -47,7 +47,7 @@ function updateLog(statusText) {
 function bake(updateFunction) {
   var status = "Baking at " + this.bakeTemp + " for " + this.bakeTime
   setTimeout(function() {
-    cool.call(updateFunction === 'updateCakeStatus' ? cake : pie, updateFunction);
+    cool.call(updateFunction == 'updateCakeStatus' ? cake : pie, updateFunction);
   }, 2000)
   updateFunction(status)
 }
@@ -55,7 +55,7 @@ function bake(updateFunction) {
 function mix(updateFunction) {
   var status = "Mixing " + this.ingredients.join(", ")
   setTimeout(() => {
-    bake.call(updateFunction === 'updateCakeStatus' ? cake : pie, updateFunction);
+    bake.call(updateFunction == 'updateCakeStatus' ? cake : pie, updateFunction);
   }, 2000)
   updateFunction(status)
 }
