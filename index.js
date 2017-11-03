@@ -47,7 +47,7 @@ function updateLog(statusText) {
 function bake(updateFunction) {
   var status = "Baking at " + this.bakeTemp + " for " + this.bakeTime
   setTimeout(function() {
-    cool(updateFunction)
+    cool(updateFunction).call(updateFunction === 'updateCakeStatus' ? cake : pie);
   }, 2000)
 }
 
