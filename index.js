@@ -71,6 +71,7 @@ function cool(updateFunction) {
 function makeDessert() {
   //add code here to decide which make... function to call
   //based on which link was clicked
+  alert(this.parentNode.id);
   if (this.parentNode.id === 'cake') {
     makeCake(this.parentNode);
   } else {
