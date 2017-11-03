@@ -55,7 +55,7 @@ function bake(updateFunction) {
 function mix(updateFunction) {
   var status = "Mixing " + this.ingredients.join(", ")
   setTimeout(() => {
-    bake.call(this.ingredients === ["eggs", "flour", "oil", "chocolate", "sugar", "butter"] ? cake : pie, updateFunction);
+    bake.call(this.ingredients == ["eggs", "flour", "oil", "chocolate", "sugar", "butter"] ? cake : pie, updateFunction);
   }, 2000)
   updateFunction(status)
 }
