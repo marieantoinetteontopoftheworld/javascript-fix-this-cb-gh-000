@@ -32,7 +32,7 @@ function makePie() {
   var updatePieStatus;
   mix(updatePieStatus)
 
-  cake.decorate.bind(pie, );
+  cake.decorate.bind(pie, updateLog);
 }
 
 function updateStatus(statusText) {
