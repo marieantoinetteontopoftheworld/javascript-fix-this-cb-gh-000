@@ -63,8 +63,9 @@ function mix(updateFunction) {
 function cool(updateFunction) {
   var status = "It has to cool! Hands off!"
   setTimeout(function() {
-    this.decorate.call(updateFunction === 'updateCakeStatus' ? cake : pie, updateFunction);
+    this.decorate(updateFunction);
   }, 2000)
+  updateFunction(status)
 }
 
 function makeDessert() {
