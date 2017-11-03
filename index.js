@@ -23,15 +23,15 @@ var pie = {
   customer: "Tammy"
 }
 
-function makeCake(div) {
-  var updateCakeStatus = updateStatus.bind(div);
-  mix(updateCakeStatus)
+function makeCake() {
+  var updateCakeStatus = updateStatus.bind(document.getElementById('cake'));
+  mix.call(cake, updateCakeStatus)
 }
 
 function makePie() {
-  var updatePieStatus = updateStatus.bind(div);
+  var updatePieStatus = updateStatus.bind(document.getElementById('pie'));
   pie.decorate = cake.decorate.bind(pie);
-  mix(updatePieStatus)
+  mix.call(pie, updatePieStatus)
 }
 
 function updateStatus(statusText) {
@@ -47,14 +47,14 @@ function updateLog(statusText) {
 function bake(updateFunction) {
   var status = "Baking at " + this.bakeTemp + " for " + this.bakeTime
   setTimeout(function() {
-    cool(updateFunction).call(updateFunction === 'updateCakeStatus' ? cake : pie);
+    cool.call(updateFunction === 'updateCakeStatus' ? cake : pie, updateFunction);
   }, 2000)
 }
 
 function mix(updateFunction) {
   var status = "Mixing " + this.ingredients.join(", ")
   setTimeout(() => {
-    bake(updateFunction).call(updateFunction === 'updateCakeStatus' ? cake : pie);
+    bake.call(updateFunction === 'updateCakeStatus' ? cake : pie, updateFunction);
   }, 2000)
   updateFunction(status)
 }
@@ -62,7 +62,7 @@ function mix(updateFunction) {
 function cool(updateFunction) {
   var status = "It has to cool! Hands off!"
   setTimeout(function() {
-    this.decorate(updateFunction).call(updateFunction === 'updateCakeStatus' ? cake : pie);
+    this.decorate.call(updateFunction === 'updateCakeStatus' ? cake : pie, updateFunction);
   }, 2000)
 }
 
